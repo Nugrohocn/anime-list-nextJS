@@ -3,10 +3,10 @@ import InputSearch from "./InputSearch";
 
 const Navbar = () => {
   return (
-    <header className="bg-indigo-500">
-      <div className="flex md:flex-row flex-col justify-between p-4 items-center">
+    <header className="bg-[#222831]">
+      <div className="flex md:flex-row flex-col  justify-between p-4 md:items-center">
         <Link href="/" className="font-bold text-xl text-white">
-          ANIME LIST
+          Anime List
         </Link>
         <InputSearch />
       </div>

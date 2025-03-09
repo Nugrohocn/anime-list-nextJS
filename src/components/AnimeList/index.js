@@ -12,9 +12,11 @@ const AnimeList = ({ api }) => {
               width={350}
               height={350}
               alt=""
-              className="max-h-64 w-full object-cover"
+              className="max-h-64 w-full object-cover rounded-xl"
             />
-            <h1 className="font-bold p-4 md:text-xl text-sm">{anime.title}</h1>
+            <h1 className="font-bold text-white p-4 md:text-xl text-sm">
+              {anime.title}
+            </h1>
           </Link>
         );
       })}
