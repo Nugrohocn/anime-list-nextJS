@@ -7,7 +7,6 @@ const Page = async () => {
   );
 
   const topAnime = await response.json();
-  console.log(topAnime);
 
   return (
     <div>

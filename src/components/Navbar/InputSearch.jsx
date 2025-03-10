@@ -12,11 +12,11 @@ const InputSearch = () => {
   const handleSearch = (event) => {
     if (event.key === "Enter" || event.type === "click") {
       event.preventDefault();
-      const keyword = searchRef.current?.value.trim() ?? ""; // Ambil langsung dari input
+      const keyword = searchRef.current?.value.trim() ?? "";
 
       if (keyword === "") {
         setError(true);
-        searchRef.current.value = ""; // Kosongkan input agar placeholder muncul
+        searchRef.current.value = "";
         return;
       }
 
