@@ -1,5 +1,7 @@
 import AnimeList from "@/components/AnimeList";
 import Header from "@/components/AnimeList/Header";
+import HeaderBanner from "@/components/HeaderBanner";
+
 import {
   getAnimeResponse,
   getNestedAnimeResponse,
@@ -13,10 +15,11 @@ const Page = async () => {
     "entry"
   );
 
-  recommendedAnime = reproduce(recommendedAnime, 4);
+  recommendedAnime = reproduce(recommendedAnime, 3);
 
   return (
     <div>
+      <HeaderBanner />
       <section>
         <Header
           title="Paling Populer"

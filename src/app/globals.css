@@ -1,55 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 @import "tailwindcss";
-/* @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap"); */
 
 body {
-  background-color: #222831;
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "Poppins", sans-serif;
+  background-color: #111827;
 }
 
 :root {
   font-family: var(--font-space-grotesk), sans-serif;
 }
 
-img {
-  transition: 0.3s ease all;
-  -webkit-transition: 0.3s ease all;
-  -moz-transition: 0.3s ease all;
-  -ms-transition: 0.3s ease all;
-  -o-transition: 0.3s ease all;
-}
-
-img:hover {
-  scale: 102%;
-}
-
-.loading {
-  width: 100px;
-  height: 100px;
-  --c: radial-gradient(farthest-side, #3b82f6 92%, #0000); /* from-blue-500 */
-  background: var(--c) 50% 0, var(--c) 50% 100%, var(--c) 100% 50%,
-    var(--c) 0 50%;
-  background-size: 20px 20px;
-  background-repeat: no-repeat;
-  animation: s8 0.5s infinite ease-in-out;
+/* Loader yang lebih besar */
+.loader {
   position: relative;
+  width: 5em; /* Sebelumnya 2.5em */
+  height: 5em;
+  transform: rotate(165deg);
 }
 
-.loading::before {
+.loader:before,
+.loader:after {
   content: "";
   position: absolute;
-  inset: 0;
-  margin: 6px;
-  background: repeating-conic-gradient(
-    #0000 0 35deg,
-    #3b82f6 0 60deg,
-    #a855f7 0 90deg
-  ); /* from-blue-500 to-purple-500 */
-  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 6px), #000 0);
-  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 1em; /* Sebelumnya 0.5em */
+  height: 1em;
+  border-radius: 0.5em; /* Menyesuaikan dengan ukuran baru */
+  transform: translate(-50%, -50%);
 }
 
-@keyframes s8 {
-  100% {
-    transform: rotate(0.5turn);
+.loader:before {
+  animation: before8 2s infinite;
+}
+
+.loader:after {
+  animation: after6 2s infinite;
+}
+
+@keyframes before8 {
+  0% {
+    width: 1em;
+    box-shadow: 2em -1em rgba(225, 20, 98, 0.75),
+      -2em 1em rgba(111, 202, 220, 0.75);
   }
+
+  35% {
+    width: 5em;
+    box-shadow: 0 -1em rgba(225, 20, 98, 0.75), 0 1em rgba(111, 202, 220, 0.75);
+  }
+
+  70% {
+    width: 1em;
+    box-shadow: -2em -1em rgba(225, 20, 98, 0.75),
+      2em 1em rgba(111, 202, 220, 0.75);
+  }
+
+  100% {
+    box-shadow: 2em -1em rgba(225, 20, 98, 0.75),
+      -2em 1em rgba(111, 202, 220, 0.75);
+  }
+}
+
+@keyframes after6 {
+  0% {
+    height: 1em;
+    box-shadow: 1em 2em rgba(61, 184, 143, 0.75),
+      -1em -2em rgba(233, 169, 32, 0.75);
+  }
+
+  35% {
+    height: 5em;
+    box-shadow: 1em 0 rgba(61, 184, 143, 0.75), -1em 0 rgba(233, 169, 32, 0.75);
+  }
+
+  70% {
+    height: 1em;
+    box-shadow: 1em -2em rgba(61, 184, 143, 0.75),
+      -1em 2em rgba(233, 169, 32, 0.75);
+  }
+
+  100% {
+    box-shadow: 1em 2em rgba(61, 184, 143, 0.75),
+      -1em -2em rgba(233, 169, 32, 0.75);
+  }
+}
+
+/* Posisi tetap di tengah */
+.loader {
+  position: absolute;
+  top: calc(50% - 2.5em);
+  left: calc(50% - 2.5em);
 }
